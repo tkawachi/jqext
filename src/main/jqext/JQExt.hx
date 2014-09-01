@@ -103,7 +103,7 @@ class JQExt {
 
 
     public static function selected(jq: JQuery, b: Bool = true): JQuery {
-        return jq.prop('selected', true);
+        return jq.prop('selected', b);
     }
 
     public static function enable(jq: JQuery, b: Bool = true): JQuery {
@@ -126,6 +126,13 @@ class JQExt {
     public static function enableButtons(jq: JQuery, enabled: Bool = true) {
         var btns = jq.find('button,input[type="submit"]');
         enable(btns, enabled);
+    }
+
+    /**
+     * Deselect a <select> element.
+     */
+    public static function deselect(jq: JQuery): JQuery {
+      return jq.prop("selectedIndex", -1);
     }
 
     /**
