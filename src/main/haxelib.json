@@ -1,0 +1,14 @@
+{
+  "name": "jqext",
+  "license": "MIT",
+  "tags": [],
+  "description": "Mixins for JQueryExtern",
+  "contributors": ["kawachi"],
+  "releasenote": "Initial version",
+  "version": "0.0.1",
+  "url": "https://github.com/tkawachi/jqext",
+  "dependencies": {
+    "hxopt": "",
+    "JQueryExtern": ""
+  }
+}
