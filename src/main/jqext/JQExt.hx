@@ -177,25 +177,40 @@ class JQExt {
         });
     }
 
-    /**
-     * Toggle CSS class on collapsing/uncollapsing.
-     */
-    public static function toggleClassOnCollapse(
-        jq: JQuery,
-        jqTarget: JQuery,
-        closedClass: String = "glyphicon-chevron-down",
-        openedClass: String = "glyphicon-chevron-up"
-    ) {
-        jq.on('show.bs.collapse', function(ev) {
-            jqTarget
-                .removeClass(closedClass)
-                .addClass(openedClass);
-        })
-        .on('hide.bs.collapse', function(ev) {
-            jqTarget
-                .removeClass(openedClass)
-                .addClass(closedClass);
-        });
-        return jq;
+  /**
+  * Toggle CSS class on Bootstrap collapsing/uncollapsing.
+  * It finds and toggles elements which has glyphicon class under jqTarget.
+  */
+  public static function toggleClassOnCollapse(
+    jq: JQuery,
+    jqTarget: JQuery,
+    closedClass: String = "glyphicon-chevron-down",
+    openedClass: String = "glyphicon-chevron-up"
+  ) {
+    var jqGlyphicon =
+      if (jqTarget.hasClass("glyphicon")) jqTarget
+      else jqTarget.find(".glyphicon");
+
+    var onShown = function() {
+      jqGlyphicon
+      .removeClass(closedClass)
+      .addClass(openedClass);
+    };
+
+    var onHidden = function() {
+      jqGlyphicon
+      .removeClass(openedClass)
+      .addClass(closedClass);
+    };
+
+    if (jq.hasClass("in")) {
+      onShown();
+    } else {
+      onHidden();
     }
+
+    return jq
+    .on('shown.bs.collapse', onShown)
+    .on('hidden.bs.collapse', onHidden);
+  }
 }

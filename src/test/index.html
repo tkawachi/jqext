@@ -1,0 +1,41 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <script src="TestMain.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>toggleClassOnCollapse()</h1>
+    <a href="#" class="btn btn-default"
+    data-toggle="collapse" data-target="#clps1">
+      <span id="tgl1" class="glyphicon"></span>
+    </a>
+
+    <div id="clps1" class="collapse">
+      Collapse
+    </div>
+
+    <h1>toggleClassOnCollapse() with another event handler which returns false</h1>
+    <a href="#" class="btn btn-default"
+    data-toggle="collapse" data-target="#clps2">
+      <span id="tgl2" class="glyphicon"></span>
+    </a>
+
+    <div id="clps2" class="collapse">
+      Collapse
+    </div>
+
+    <h1>toggleClassOnCollapse() child glyphicon</h1>
+    <a id="tgl3" href="#" class="btn btn-default"
+    data-toggle="collapse" data-target="#clps3">
+      <span class="glyphicon"></span>
+    </a>
+
+    <div id="clps3" class="collapse">
+      Collapse
+    </div>
+  </div>
+</body>
