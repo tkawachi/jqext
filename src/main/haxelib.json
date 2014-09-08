@@ -5,10 +5,10 @@
   "description": "Mixins for JQueryExtern",
   "contributors": ["kawachi"],
   "releasenote": "test toggleClassOnCollapse()",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "url": "https://github.com/tkawachi/jqext",
   "dependencies": {
     "hxopt": "",
-    "JQueryExtern": ""
+    "jQueryExtern": ""
   }
 }
