@@ -179,38 +179,23 @@ class JQExt {
 
   /**
   * Toggle CSS class on Bootstrap collapsing/uncollapsing.
-  * It finds and toggles elements which has glyphicon class under jqTarget.
   */
   public static function toggleClassOnCollapse(
     jq: JQuery,
     jqTarget: JQuery,
-    closedClass: String = "glyphicon-chevron-down",
-    openedClass: String = "glyphicon-chevron-up"
+    closedClass: String,
+    openedClass: String
   ) {
-    var jqGlyphicon =
-      if (jqTarget.hasClass("glyphicon")) jqTarget
-      else jqTarget.find(".glyphicon");
-
-    var onShown = function() {
-      jqGlyphicon
-      .removeClass(closedClass)
-      .addClass(openedClass);
+    var toggle = function(shown: Bool) {
+      jqTarget
+        .toggleClass(closedClass, !shown)
+        .toggleClass(openedClass, shown);
     };
 
-    var onHidden = function() {
-      jqGlyphicon
-      .removeClass(openedClass)
-      .addClass(closedClass);
-    };
-
-    if (jq.hasClass("in")) {
-      onShown();
-    } else {
-      onHidden();
-    }
+    toggle(jq.hasClass("in"));
 
     return jq
-    .on('shown.bs.collapse', onShown)
-    .on('hidden.bs.collapse', onHidden);
+    .on('shown.bs.collapse', function(){toggle(true);})
+    .on('hidden.bs.collapse', function(){toggle(false);});
   }
 }
