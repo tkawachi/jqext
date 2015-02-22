@@ -60,6 +60,10 @@ class JQExt {
         return jqOpt(jq.find(selector));
     }
 
+    public static function exists(jq: JQuery, selector: String): Bool {
+        return findOption(jq, selector).isDefined();
+    }
+
     /**
      * Execute jq.find(selector) and check with function.
      * check returns None when no error found, returns Some(error message)
